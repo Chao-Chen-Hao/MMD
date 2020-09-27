@@ -16,19 +16,19 @@ from utils.evaluate import evaluate
 SOURCE_DOMAIN = 'gta5'
 TARGET_DOMAIN = 'cityscapes'
 MODEL = 'Deeplab'
-BACKBONE = 'drn'
+BACKBONE = 'resnet'
 IGNORE_LABEL = 255
 NUM_CLASSES = 19
-BATCH_SIZE = 1
+BATCH_SIZE = 20
 RESTORE_FROM = './snapshots/model.pth'
 GPU = 0
 INPUT_SIZE = '1024,512'
 GT_SIZE = '2048,1024'
 
 ####  Path Settings  ####
-DATA_DIRECTORY = '../Warehouse/Cityscapes/data'
+DATA_DIRECTORY = '../../Warehouse/Cityscapes/data'
 DATA_LIST_PATH = './dataset/cityscapes_list/val.txt'
-GT_DIR = '../Warehouse/Cityscapes/data/gtFine/val'
+GT_DIR = '../../Warehouse/Cityscapes/data/gtFine/val'
 GT_LIST_PATH = './dataset/cityscapes_list'
 RESULT_DIR = './result/test'
 

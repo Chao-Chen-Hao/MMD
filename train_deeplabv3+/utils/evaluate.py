@@ -54,8 +54,8 @@ def evaluate(args, gt_dir, gt_list, result_dir, model):
     targetloader = data.DataLoader(
         cityscapesDataSet(args.data_dir, image_path_list,
                 max_iters=total/args.batch_size,
-                resize_size=(1024,512),
-                crop_size=(512,1024),
+                resize_size=args.input_size,
+                crop_size=(args.input_size[1],args.input_size[0]),
                 set='val', scale=False, mirror=False, mean=TARGET_IMG_MEAN, autoaug = False),
     batch_size=args.batch_size, shuffle=False, num_workers=1, pin_memory=True, drop_last=False)
 

@@ -20,16 +20,16 @@ MODEL = 'Deeplab'
 BACKBONE = 'resnet'
 IGNORE_LABEL = 255
 NUM_CLASSES = 19
-BATCH_SIZE = 10
-RESTORE_FROM = './snapshots/supervised_seg_2000.pth'
+BATCH_SIZE = 20
+RESTORE_FROM = './weights/model.pth'
 GPU = 0
 INPUT_SIZE = '1024,512'
 GT_SIZE = '2048,1024'
 
 ####  Path Settings  ####
-DATA_DIRECTORY = '../Warehouse/Cityscapes/data'
+DATA_DIRECTORY = '../../Warehouse/Cityscapes/data'
 DATA_LIST_PATH = './dataset/cityscapes_list/val.txt'
-GT_DIR = '../Warehouse/Cityscapes/data/gtFine/val'
+GT_DIR = '../../Warehouse/Cityscapes/data/gtFine/val'
 GT_LIST_PATH = './dataset/cityscapes_list'
 RESULT_DIR = './result/test'
 
@@ -42,8 +42,8 @@ def get_arguments():
                         help="available options : gta5, synthia")
     parser.add_argument("--target-domain", type=str, default=TARGET_DOMAIN, choices=['cityscapes'],
                         help="available options : cityscapes")
-    parser.add_argument("--backbone", type=str, default=BACKBONE, choices=['resnet', 'mobilenet', 'xception', 'drn'],
-                        help="available options : resnet, mobilenet, xception, drn")
+    parser.add_argument("--backbone", type=str, default=BACKBONE, choices=['resnet', 'mobilenet', 'drn'],
+                        help="available options : resnet, mobilenet, drn")
     parser.add_argument("--ignore-label", type=int, default=IGNORE_LABEL,
                         help="The index of the label to ignore during the training.")
     parser.add_argument("--num-classes", type=int, default=NUM_CLASSES,
@@ -89,13 +89,7 @@ def main():
         os.makedirs(args.result_dir)
 
     # load model
-    #config_path = os.path.join(os.path.dirname(args.restore_from),'opts.yaml')
-    #with open(config_path, 'r') as stream:
-    #    config = yaml.load(stream)
-    #args.model = config['model']
-
     model = Deeplabv2(num_classes=args.num_classes, backbone=args.backbone)
-    
     saved_state_dict = torch.load(args.restore_from)
     model.load_state_dict(saved_state_dict)
     model.cuda(args.gpu_id)

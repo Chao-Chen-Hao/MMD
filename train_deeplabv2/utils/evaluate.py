@@ -8,7 +8,7 @@ import torch.nn as nn #
 from torch.utils import data, model_zoo
 from dataset.cityscapes_dataset import cityscapesDataSet
 from dataset.gta5_dataset import gta5DataSet
-#from dataset.synthia_dataset import synthiaDataSet #
+from dataset.synthia_dataset import synthiaDataSet
 from utils.compute_iou import compute_mIoU
 from os.path import join
 import time
@@ -54,24 +54,13 @@ def evaluate(args, gt_dir, gt_list, result_dir, model):
         total = 500
         
         targetloader = data.DataLoader(
-            cityscapesDataSet('../Warehouse/Cityscapes/data', image_path_list,
+            cityscapesDataSet(args.data_dir, image_path_list,
                     max_iters=total/args.batch_size,
-                    resize_size=(1024,512),
-                    crop_size=(512,1024),
+                    resize_size=args.input_size,
+                    crop_size=(args.input_size[1],args.input_size[0]),
                     set='val', scale=False, mirror=False, mean=TARGET_IMG_MEAN, autoaug = False),
         batch_size=args.batch_size, shuffle=False, num_workers=1, pin_memory=True, drop_last=False)
-        '''
-        targetloader = data.DataLoader(
-        gta5DataSet('../Warehouse/GTA5', './dataset/gta5_list/train.txt',
-                    max_iters=1000,
-                    resize_size=(1280,720),
-                    crop_size=(720,1280),
-                    scale=False, mirror=False, mean=TARGET_IMG_MEAN),
-        batch_size=args.batch_size, shuffle=False, num_workers=1, pin_memory=True, drop_last=True)
-        targetloader_iter = enumerate(targetloader)
-        '''
         
-
     interp = nn.Upsample(size=gt_size, mode='bilinear', align_corners=True)
 
     sm = torch.nn.Softmax(dim = 1)
