@@ -1,4 +1,4 @@
-# Semantic Segmentation Based Unsupervised Domain Adaptation via Multi-Model Distillation and Pseudo-Label Fusion 
+# Semantic Segmentation Based Unsupervised Domain Adaptation via Pseudo-Label Fusion 
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
@@ -38,7 +38,7 @@ Warehouse/
 ```
 ### Training
 Quick start:
-1. Down the pre-generated pseudo label [here](https://drive.google.com/file/d/1g_E8I6KpufdzlK98Ca5fK8Q-CC83sdqK/view?usp=sharing).
+1. Down the pre-generated pseudo label here. (currently unavilable)
 2. Place the pseudo label in the `Cityscapes/data/gtFine` folder and train with the following command:
 ```
 cd train_deeplabv3+
@@ -103,7 +103,7 @@ python test.py --num-classes 16 --source-domain synthia --backbone mobilenet --r
 ```
 
 ### Pretrained Weights
-You can download the pretrained model [here](https://drive.google.com/file/d/1dSmwNlWPHnIZy1JgS6d1POerML4Rh1sf/view?usp=sharing).
+You can download the pretrained model here. (currently unavilable)
 
 ### Prerequisites
 - Python 3.6
