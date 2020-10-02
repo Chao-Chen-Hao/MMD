@@ -25,9 +25,9 @@ FUSION_MODE = 'majority'
 THRESHOLD = 90
 
 ####  Path Settings  ####
-DATA_DIRECTORY_TARGET = '../Warehouse/Cityscapes/data/'
+DATA_DIRECTORY_TARGET = '../../Warehouse/Cityscapes/data/'
 DATA_LIST_PATH_TARGET = './dataset/cityscapes_list/train.txt'
-RESULT_DIR = '../Warehouse/Cityscapes/data/gtFine/pseudo_majority_new'
+RESULT_DIR = '../../Warehouse/Cityscapes/data/gtFine/pseudo_majority_new'
 
 palette = [128, 64, 128, 244, 35, 232, 70, 70, 70, 102, 102, 156, 190, 153, 153, 153, 153, 153, 250, 170, 30,
            220, 220, 0, 107, 142, 35, 152, 251, 152, 70, 130, 180, 220, 20, 60, 255, 0, 0, 0, 0, 142, 0, 0, 70,

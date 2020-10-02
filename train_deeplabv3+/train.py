@@ -37,7 +37,7 @@ HARD_LABEL = 80
 SOURCE_DOMAIN = 'gta5'
 TARGET_DOMAIN = 'cityscapes'
 MODEL = 'DeepLab'
-BACKBONE = 'drn'
+BACKBONE = 'resnet'
 BATCH_SIZE = 20
 NUM_WORKERS = 1
 IGNORE_LABEL = 255
@@ -54,12 +54,12 @@ AUTOAUG = False
 AUTOAUG_TARGET = False
 
 ####  Path Settings  ####
-DATA_DIRECTORY = '../Warehouse/Cityscapes/data'
+DATA_DIRECTORY = '../../Warehouse/Cityscapes/data'
 DATA_LIST_PATH = './dataset/cityscapes_list/train.txt'
 SNAPSHOT_DIR = './snapshots'
 LOG_DIR = './log'
 RESTORE_FROM = '../snapshots/model.pth'
-GT_DIR = '../Warehouse/Cityscapes/data/gtFine/val'
+GT_DIR = '../../Warehouse/Cityscapes/data/gtFine/val'
 GT_LIST_PATH = './dataset/cityscapes_list'
 RESULT_DIR = './result/gta5'
 

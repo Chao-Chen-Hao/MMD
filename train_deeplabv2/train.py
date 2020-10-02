@@ -36,10 +36,10 @@ RANDOM_SEED = 1234
 DROPRATE = 0
 
 #### Model Settings  ####
-SOURCE_DOMAIN = 'synthia'#'gta5'
+SOURCE_DOMAIN = 'gta5'
 TARGET_DOMAIN = 'cityscapes'
 MODEL = 'DeepLab'
-BACKBONE = 'resnet' #'mobilenet' 'drn'
+BACKBONE = 'resnet' 
 BATCH_SIZE = 10
 NUM_WORKERS = 1
 IGNORE_LABEL = 255
@@ -51,18 +51,18 @@ MIOU = 0.0
 INPUT_SIZE = '1024,512'
 GT_SIZE = '2048,1024'
 CROP_SIZE = '512,256'
-SET = 'pseudo_majority_90_SYNTHIA_new' #'pseudo_certainty_new'
+SET = 'pseudo_majority_90_SYNTHIA_new'
 NORM_STYLE = 'bn' # or in
 AUTOAUG = False
 AUTOAUG_TARGET = False
 
 ####  Path Settings  ####
-DATA_DIRECTORY = '../Warehouse/Cityscapes/data'
+DATA_DIRECTORY = '../../Warehouse/Cityscapes/data'
 DATA_LIST_PATH = './dataset/cityscapes_list/train.txt'
 SNAPSHOT_DIR = './snapshots'
 LOG_DIR = './log'
-RESTORE_FROM = '../syn_backbone/v2_resnet_syn/snapshots/model.pth' #'../bb/mobilenet/model.pth'
-GT_DIR = '../Warehouse/Cityscapes/data/gtFine/val'
+RESTORE_FROM = './weights/model.pth'
+GT_DIR = '../../Warehouse/Cityscapes/data/gtFine/val'
 GT_LIST_PATH = './dataset/cityscapes_list'
 RESULT_DIR = './result/synthia'
 
