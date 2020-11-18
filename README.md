@@ -1,4 +1,4 @@
-# Semantic Segmentation Based Unsupervised Domain Adaptation via Pseudo-Label Fusion 
+# PLF
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
